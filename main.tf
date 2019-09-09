@@ -53,6 +53,14 @@ cd /Chess && sudo gulp start &
 EOF
 }
 
+resource "null_resource" "delay" {
+  provisioner "local-exec" {
+    command = "sleep 60"
+  }
+  triggers = {
+    "before" = "${aws_instance.my_back.id}"
+  }
+}
 resource "aws_instance" "my_front" {
   ami = "ami-010fae13a16763bb4"
   instance_type = "t2.micro"
@@ -90,7 +98,7 @@ gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' > /etc/yum.repos.d/mon
 sudo yum install -y mongodb-org
 sudo service mongod start
 cd /Chess && sudo npm install gulp@3.9.1
-git clone https://github.com/boxerwba/ip.git
+sudo git clone https://github.com/boxerwba/ip.git
 ip_back=$(cat /ip/ip)
 sed "s/localhost/$ip_back/g" /Chess/config.js
 cd /Chess && sudo gulp start &

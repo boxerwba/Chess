@@ -17,7 +17,7 @@ resource "aws_instance" "my_back" {
     delete_on_termination = true
   }
   tags = {
-    Name = "front"
+    Name = "back"
     Owner = "Dima Kyryakov"
     Project = "Demo4"
   }
@@ -59,7 +59,7 @@ resource "aws_instance" "my_front" {
     delete_on_termination = true
   }
   tags = {
-    Name = "back"
+    Name = "front"
     Owner = "Dima Kyryakov"
     Project = "Demo4"
   }

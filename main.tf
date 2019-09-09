@@ -46,10 +46,6 @@ cd /Chess && sudo gulp start &
 EOF
 }
 
-variable "ip_back" {
-  default = "${aws_instance.my_front.private_ip}"
-}
-
 resource "aws_instance" "my_front" {
   ami = "ami-010fae13a16763bb4"
   instance_type = "t2.micro"

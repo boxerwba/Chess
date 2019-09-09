@@ -39,6 +39,13 @@ enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' > /etc/yum.repos.d/mongodb-org-4.2.repo
 sudo yum install -y mongodb-org
 sudo service mongod start
+
+sudo git clone https://github.com/boxerwba/ip.git
+sudo curl http://169.254.169.254/latest/meta-data/public-ipv4 > /ip/ip
+sudo git remote set-url origin https://boxerwba:Openjok1234@github.com/boxerwba/ip.git
+sudo git add *
+sudo git commit -m '1'
+sudo git push origin master
 cd /Chess && sudo npm install gulp@3.9.1
 cd /Chess && sudo node ./lib/server/seedDB.js 
 cd /Chess && sudo node ./lib/server/index.js &
@@ -83,6 +90,10 @@ gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' > /etc/yum.repos.d/mon
 sudo yum install -y mongodb-org
 sudo service mongod start
 cd /Chess && sudo npm install gulp@3.9.1
+git clone https://github.com/boxerwba/ip.git
+ip_back=$(cat /ip/ip)
+sed "s/localhost/$ip_back/g" /Chess/config.js
+cd /Chess && sudo gulp start &
 EOF
 }
 

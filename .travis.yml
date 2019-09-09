@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - 6
+  
+cache: npm
+
+install:
+  - npm i -g gulp@3.9.1
+  - npm i gulp
+  
+script:
+  - npm test
+  - gulp
+  - sudo wget https://releases.hashicorp.com/terraform/0.12.6/terraform_0.12.6_linux_amd64.zip
+  - sudo unzip terraform_0.12.6_linux_amd64.zip
+  - sudo rm terraform_0.12.6_linux_amd64.zip
+  - sudo mv terraform /bin/
+  - terraform --version
+  - terraform init
+  - terraform plan 
+  - terraform apply -auto-approve

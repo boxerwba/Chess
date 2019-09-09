@@ -64,12 +64,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wile1628/NodeJsChess.git"
+    "url": "git+https://github.com/boxerwba/Chess.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wile1628/NodeJsChess/issues"
+    "url": "https://github.com/boxerwba/Chess/issues"
   },
-  "homepage": "https://github.com/wile1628/NodeJsChess#readme"
+  "homepage": "https://github.com/boxerwba/Chess#readme"
 }

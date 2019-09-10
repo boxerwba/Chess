@@ -1,10 +1,9 @@
 provider "aws" {
-  access_key = "AKIAWFVWA7VDQAPCUVD2"
-  secret_key = "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"
+  access_key = "AKIAWFVWA7VD54UFWD5W"
+  secret_key = "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"
   region = "eu-central-1"
 }
-
-resource "aws_instance" "prod" {
+resource "aws_instance" "my_back" {
   ami = "ami-010fae13a16763bb4"
   instance_type = "t2.micro"
   key_name = "demo4"
@@ -17,15 +16,9 @@ resource "aws_instance" "prod" {
     delete_on_termination = true
   }
   tags = {
-    Name = "prod"
+    Name = "back"
     Owner = "Dima Kyryakov"
     Project = "Demo4"
   }
   user_data = file("1.sh")
 }
-
-
-
-
-
-

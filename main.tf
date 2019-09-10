@@ -100,6 +100,7 @@ sudo service mongod start
 cd /Chess && sudo npm install gulp@3.9.1
 sudo git clone https://github.com/boxerwba/ip.git
 ip_back=$(cat /ip/ip)
+ip_back1=$"(aws_instance.my_front.public_ip)" > /home/ec2-user/1
 sed "s/localhost/$ip_back/g" /Chess/config.js
 cd /Chess && sudo gulp start &
 EOF

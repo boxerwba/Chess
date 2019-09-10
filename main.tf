@@ -81,6 +81,7 @@ resource "aws_instance" "my_front" {
 
   user_data =  <<EOF
 #!/bin/bash
+sudo sleep 60
 sudo yum install -y nano git 
 sudo git clone https://github.com/boxerwba/Chess.git
 sudo yum install -y gcc-c++ make
